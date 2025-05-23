@@ -31,6 +31,7 @@
 #include "oled.h"
 #include "SR04.h"
 #include "mpu6050.h"
+#include "VL53L0X.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +46,9 @@ MPU6050_t MPU6050;
 char messagex[20] = "";
 char messagey[20] = "";
 char messagez[20] = "";
+
+uint16_t vl53l0x_distance;
+statInfo_t_VL53L0X distanceStr;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -120,16 +124,17 @@ int main(void)
 
   HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
 
+  //超声波测距SR04
   sr04.trig_port = GPIOA;
   sr04.trig_pin = GPIO_PIN_9;
   sr04.echo_htim = &htim1;
   sr04.echo_channel = TIM_CHANNEL_1;
   sr04_init(&sr04);
 
-  while (MPU6050_Init(&hi2c2) == 1);
-  // OLED_NewFrame();
-  // OLED_PrintString(0, 0, "init success", &font16x16, OLED_COLOR_NORMAL);
-  // OLED_ShowFrame();
+  //陀螺仪MPU6050
+  // while (MPU6050_Init(&hi2c2) == 1);
+
+  initVL53L0X(0, &hi2c2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -143,15 +148,20 @@ int main(void)
     // OLED_PrintString(0, 17, message_sr04, &font16x16, OLED_COLOR_NORMAL);
     // OLED_ShowFrame();
 
-    MPU6050_Read_All(&hi2c2, &MPU6050);
-    // HAL_Delay (100);
-    sprintf(messagex, "x: %.2f", MPU6050.KalmanAngleX);
-    sprintf(messagey, "y: %.2f", MPU6050.KalmanAngleY);
-    sprintf(messagez, "z: %.2f", MPU6050.AngleZ);
+    // MPU6050_Read_All(&hi2c2, &MPU6050);
+    // sprintf(messagex, "x: %.2f", MPU6050.KalmanAngleX);
+    // sprintf(messagey, "y: %.2f", MPU6050.KalmanAngleY);
+    // sprintf(messagez, "z: %.2f", MPU6050.AngleZ);
+    // OLED_NewFrame();
+    // OLED_PrintString(0, 0, messagex, &font16x16, OLED_COLOR_NORMAL);
+    // OLED_PrintString(0, 17, messagey, &font16x16, OLED_COLOR_NORMAL);
+    // OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
+    // OLED_ShowFrame();
+
+    vl53l0x_distance = readRangeSingleMillimeters(&distanceStr);
+    sprintf(message_sr04, "Distance: %d", vl53l0x_distance);
     OLED_NewFrame();
-    OLED_PrintString(0, 0, messagex, &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(0, 17, messagey, &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 0, message_sr04, &font16x16, OLED_COLOR_NORMAL);
     OLED_ShowFrame();
     /* USER CODE END WHILE */
 

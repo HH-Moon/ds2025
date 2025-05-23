@@ -152,6 +152,30 @@ Core/Src/SR04.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/SR04.c.s
 .PHONY : Core/Src/SR04.c.s
 
+Core/Src/VL53L0X.obj: Core/Src/VL53L0X.c.obj
+.PHONY : Core/Src/VL53L0X.obj
+
+# target to build an object file
+Core/Src/VL53L0X.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/VL53L0X.c.obj
+.PHONY : Core/Src/VL53L0X.c.obj
+
+Core/Src/VL53L0X.i: Core/Src/VL53L0X.c.i
+.PHONY : Core/Src/VL53L0X.i
+
+# target to preprocess a source file
+Core/Src/VL53L0X.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/VL53L0X.c.i
+.PHONY : Core/Src/VL53L0X.c.i
+
+Core/Src/VL53L0X.s: Core/Src/VL53L0X.c.s
+.PHONY : Core/Src/VL53L0X.s
+
+# target to generate assembly for a file
+Core/Src/VL53L0X.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/VL53L0X.c.s
+.PHONY : Core/Src/VL53L0X.c.s
+
 Core/Src/font.obj: Core/Src/font.c.obj
 .PHONY : Core/Src/font.obj
 
@@ -844,6 +868,9 @@ help:
 	@echo ... Core/Src/SR04.obj
 	@echo ... Core/Src/SR04.i
 	@echo ... Core/Src/SR04.s
+	@echo ... Core/Src/VL53L0X.obj
+	@echo ... Core/Src/VL53L0X.i
+	@echo ... Core/Src/VL53L0X.s
 	@echo ... Core/Src/font.obj
 	@echo ... Core/Src/font.i
 	@echo ... Core/Src/font.s
