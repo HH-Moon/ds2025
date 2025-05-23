@@ -30,8 +30,11 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "G:/STM32-Project/ds/Core/Src/font.c" "CMakeFiles/ds.elf.dir/Core/Src/font.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/font.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/gpio.c" "CMakeFiles/ds.elf.dir/Core/Src/gpio.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/gpio.c.obj.d"
+  "G:/STM32-Project/ds/Core/Src/i2c.c" "CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/main.c" "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj.d"
+  "G:/STM32-Project/ds/Core/Src/oled.c" "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/stm32f1xx_hal_msp.c" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/stm32f1xx_it.c" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_it.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_it.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/syscalls.c" "CMakeFiles/ds.elf.dir/Core/Src/syscalls.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/syscalls.c.obj.d"
@@ -47,6 +50,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj.d"
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj.d"
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj.d"
+  "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj.d"
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj.d"
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj.d"
   "G:/STM32-Project/ds/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj.d"

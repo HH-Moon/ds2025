@@ -29,23 +29,30 @@ CMakeFiles/ds.elf.dir/Core/Src/main.c.obj: \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_cortex.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_flash.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_flash_ex.h \
+ G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_i2c.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pwr.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_uart.h \
- C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/string.h \
+ G:\STM32-Project\ds\Core\Inc/i2c.h G:\STM32-Project\ds\Core\Inc/main.h \
+ G:\STM32-Project\ds\Core\Inc/tim.h G:\STM32-Project\ds\Core\Inc/usart.h \
+ G:\STM32-Project\ds\Core\Inc/gpio.h \
+ C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/stdio.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/_ansi.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/newlib.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/config.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/machine/ieeefp.h \
+ C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/cdefs.h \
+ C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/reent.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/_ansi.h \
- C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/cdefs.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/_types.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/machine/_types.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/lock.h \
+ C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/stdio.h \
+ C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/string.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/_locale.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/strings.h \
  C:/PROGRA~2/Arm\ GNU\ Toolchain\ arm-none-eabi/14.2\ rel1/arm-none-eabi/include/sys/string.h \
- G:\STM32-Project\ds\Core\Inc/tim.h G:\STM32-Project\ds\Core\Inc/main.h \
- G:\STM32-Project\ds\Core\Inc/usart.h G:\STM32-Project\ds\Core\Inc/gpio.h
+ G:\STM32-Project\ds\Core\Inc/font.h G:\STM32-Project\ds\Core\Inc/oled.h \
+ G:\STM32-Project\ds\Core\Inc/font.h

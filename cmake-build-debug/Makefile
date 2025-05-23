@@ -128,6 +128,30 @@ ds.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/build
 .PHONY : ds.elf/fast
 
+Core/Src/font.obj: Core/Src/font.c.obj
+.PHONY : Core/Src/font.obj
+
+# target to build an object file
+Core/Src/font.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/font.c.obj
+.PHONY : Core/Src/font.c.obj
+
+Core/Src/font.i: Core/Src/font.c.i
+.PHONY : Core/Src/font.i
+
+# target to preprocess a source file
+Core/Src/font.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/font.c.i
+.PHONY : Core/Src/font.c.i
+
+Core/Src/font.s: Core/Src/font.c.s
+.PHONY : Core/Src/font.s
+
+# target to generate assembly for a file
+Core/Src/font.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/font.c.s
+.PHONY : Core/Src/font.c.s
+
 Core/Src/gpio.obj: Core/Src/gpio.c.obj
 .PHONY : Core/Src/gpio.obj
 
@@ -152,6 +176,30 @@ Core/Src/gpio.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/gpio.c.s
 .PHONY : Core/Src/gpio.c.s
 
+Core/Src/i2c.obj: Core/Src/i2c.c.obj
+.PHONY : Core/Src/i2c.obj
+
+# target to build an object file
+Core/Src/i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj
+.PHONY : Core/Src/i2c.c.obj
+
+Core/Src/i2c.i: Core/Src/i2c.c.i
+.PHONY : Core/Src/i2c.i
+
+# target to preprocess a source file
+Core/Src/i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/i2c.c.i
+.PHONY : Core/Src/i2c.c.i
+
+Core/Src/i2c.s: Core/Src/i2c.c.s
+.PHONY : Core/Src/i2c.s
+
+# target to generate assembly for a file
+Core/Src/i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/i2c.c.s
+.PHONY : Core/Src/i2c.c.s
+
 Core/Src/main.obj: Core/Src/main.c.obj
 .PHONY : Core/Src/main.obj
 
@@ -175,6 +223,30 @@ Core/Src/main.s: Core/Src/main.c.s
 Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
+
+Core/Src/oled.obj: Core/Src/oled.c.obj
+.PHONY : Core/Src/oled.obj
+
+# target to build an object file
+Core/Src/oled.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj
+.PHONY : Core/Src/oled.c.obj
+
+Core/Src/oled.i: Core/Src/oled.c.i
+.PHONY : Core/Src/oled.i
+
+# target to preprocess a source file
+Core/Src/oled.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/oled.c.i
+.PHONY : Core/Src/oled.c.i
+
+Core/Src/oled.s: Core/Src/oled.c.s
+.PHONY : Core/Src/oled.s
+
+# target to generate assembly for a file
+Core/Src/oled.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/oled.c.s
+.PHONY : Core/Src/oled.c.s
 
 Core/Src/stm32f1xx_hal_msp.obj: Core/Src/stm32f1xx_hal_msp.c.obj
 .PHONY : Core/Src/stm32f1xx_hal_msp.obj
@@ -544,6 +616,30 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s
 .PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s
 
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.obj
+
+# target to build an object file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.i
+
+# target to preprocess a source file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.i
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.s
+
+# target to generate assembly for a file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.s
+
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj
 .PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj
 
@@ -697,12 +793,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ds.elf
+	@echo ... Core/Src/font.obj
+	@echo ... Core/Src/font.i
+	@echo ... Core/Src/font.s
 	@echo ... Core/Src/gpio.obj
 	@echo ... Core/Src/gpio.i
 	@echo ... Core/Src/gpio.s
+	@echo ... Core/Src/i2c.obj
+	@echo ... Core/Src/i2c.i
+	@echo ... Core/Src/i2c.s
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
+	@echo ... Core/Src/oled.obj
+	@echo ... Core/Src/oled.i
+	@echo ... Core/Src/oled.s
 	@echo ... Core/Src/stm32f1xx_hal_msp.obj
 	@echo ... Core/Src/stm32f1xx_hal_msp.i
 	@echo ... Core/Src/stm32f1xx_hal_msp.s
@@ -749,6 +854,9 @@ help:
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.obj
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.i
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.s
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.i
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.s

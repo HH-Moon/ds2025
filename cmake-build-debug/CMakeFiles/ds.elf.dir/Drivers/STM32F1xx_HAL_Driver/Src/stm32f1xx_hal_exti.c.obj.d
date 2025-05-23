@@ -29,6 +29,7 @@ CMakeFiles/ds.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_cortex.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_flash.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_flash_ex.h \
+ G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_i2c.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pwr.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  G:\STM32-Project\ds\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \

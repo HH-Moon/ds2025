@@ -18,22 +18,28 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
-#include <string.h>
-
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
+#include "font.h"
+#include "oled.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 uint8_t receivedata[50];
 uint8_t transmitdata[50] = "Init Success";
+
+char message_sr04[20] = "";
+int upEdge = 0;
+int downEdge = 0;
+float distance = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -61,10 +67,18 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
-  if (huart == &huart3) {
-    HAL_UART_Transmit_IT(&huart3, transmitdata, strlen(transmitdata));
+  if (huart == &huart2) {
+    HAL_UART_Transmit_IT(&huart2, transmitdata, strlen(transmitdata));
 
-    HAL_UARTEx_ReceiveToIdle_IT(&huart3, receivedata, sizeof(receivedata));
+    HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
+  }
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+  if (htim == &htim1 && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4) {
+    upEdge = HAL_TIM_ReadCapturedValue(&htim1, TIM_CHANNEL_3);
+    downEdge = HAL_TIM_ReadCapturedValue(&htim1, TIM_CHANNEL_4);
+    distance = (downEdge - upEdge ) * 0.034 / 2; //cm
   }
 }
 /* USER CODE END 0 */
@@ -99,15 +113,36 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM1_Init();
-  MX_USART3_UART_Init();
+  MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UARTEx_ReceiveToIdle_IT(&huart3, receivedata, sizeof(receivedata));
+  OLED_Init();
+
+  HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
+
+  HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    OLED_NewFrame();
+    OLED_PrintString(0, 0, "hello", &font15x15, OLED_COLOR_NORMAL);
+    sprintf(message_sr04, "distance: %.2f", distance);
+    OLED_PrintString(0, 16, message_sr04, &font15x15, OLED_COLOR_NORMAL);
+    OLED_ShowFrame();
+
+    HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, GPIO_PIN_SET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, GPIO_PIN_RESET);
+    __HAL_TIM_SetCounter(&htim1, 0);
+    HAL_Delay(20);
+
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
