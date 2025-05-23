@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj.d"
   "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj"
   "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj.d"
+  "CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.obj"
+  "CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.obj.d"
   "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj"
   "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj.d"
   "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj"

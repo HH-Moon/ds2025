@@ -248,6 +248,30 @@ Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
 
+Core/Src/mpu6050.obj: Core/Src/mpu6050.c.obj
+.PHONY : Core/Src/mpu6050.obj
+
+# target to build an object file
+Core/Src/mpu6050.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.obj
+.PHONY : Core/Src/mpu6050.c.obj
+
+Core/Src/mpu6050.i: Core/Src/mpu6050.c.i
+.PHONY : Core/Src/mpu6050.i
+
+# target to preprocess a source file
+Core/Src/mpu6050.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.i
+.PHONY : Core/Src/mpu6050.c.i
+
+Core/Src/mpu6050.s: Core/Src/mpu6050.c.s
+.PHONY : Core/Src/mpu6050.s
+
+# target to generate assembly for a file
+Core/Src/mpu6050.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.s
+.PHONY : Core/Src/mpu6050.c.s
+
 Core/Src/oled.obj: Core/Src/oled.c.obj
 .PHONY : Core/Src/oled.obj
 
@@ -832,6 +856,9 @@ help:
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
+	@echo ... Core/Src/mpu6050.obj
+	@echo ... Core/Src/mpu6050.i
+	@echo ... Core/Src/mpu6050.s
 	@echo ... Core/Src/oled.obj
 	@echo ... Core/Src/oled.i
 	@echo ... Core/Src/oled.s

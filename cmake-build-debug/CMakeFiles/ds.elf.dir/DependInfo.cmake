@@ -35,6 +35,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "G:/STM32-Project/ds/Core/Src/gpio.c" "CMakeFiles/ds.elf.dir/Core/Src/gpio.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/gpio.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/i2c.c" "CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/i2c.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/main.c" "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/main.c.obj.d"
+  "G:/STM32-Project/ds/Core/Src/mpu6050.c" "CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/mpu6050.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/oled.c" "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/oled.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/stm32f1xx_hal_msp.c" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj.d"
   "G:/STM32-Project/ds/Core/Src/stm32f1xx_it.c" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_it.c.obj" "gcc" "CMakeFiles/ds.elf.dir/Core/Src/stm32f1xx_it.c.obj.d"

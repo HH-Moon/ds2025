@@ -30,6 +30,7 @@
 #include "font.h"
 #include "oled.h"
 #include "SR04.h"
+#include "mpu6050.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,6 +40,11 @@ uint8_t transmitdata[50] = "Init Success";
 
 sr04_t sr04;
 char message_sr04[20] = "";
+
+MPU6050_t MPU6050;
+char messagex[20] = "";
+char messagey[20] = "";
+char messagez[20] = "";
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -108,6 +114,7 @@ int main(void)
   MX_TIM1_Init();
   MX_I2C1_Init();
   MX_USART2_UART_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
   OLED_Init();
 
@@ -118,17 +125,33 @@ int main(void)
   sr04.echo_htim = &htim1;
   sr04.echo_channel = TIM_CHANNEL_1;
   sr04_init(&sr04);
+
+  while (MPU6050_Init(&hi2c2) == 1);
+  // OLED_NewFrame();
+  // OLED_PrintString(0, 0, "init success", &font16x16, OLED_COLOR_NORMAL);
+  // OLED_ShowFrame();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    sr04_trigger(&sr04);
-    HAL_Delay(100);
+    // sr04_trigger(&sr04);
+    // HAL_Delay(100);
+    // OLED_NewFrame();
+    // sprintf(message_sr04, "distance: %lu", sr04.distance);
+    // OLED_PrintString(0, 17, message_sr04, &font16x16, OLED_COLOR_NORMAL);
+    // OLED_ShowFrame();
+
+    MPU6050_Read_All(&hi2c2, &MPU6050);
+    // HAL_Delay (100);
+    sprintf(messagex, "x: %.2f", MPU6050.KalmanAngleX);
+    sprintf(messagey, "y: %.2f", MPU6050.KalmanAngleY);
+    sprintf(messagez, "z: %.2f", MPU6050.AngleZ);
     OLED_NewFrame();
-    sprintf(message_sr04, "distance: %lu", sr04.distance);
-    OLED_PrintString(0, 17, message_sr04, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 0, messagex, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 17, messagey, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
     OLED_ShowFrame();
     /* USER CODE END WHILE */
 
