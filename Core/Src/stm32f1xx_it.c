@@ -22,6 +22,7 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "SR04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +59,7 @@
 extern TIM_HandleTypeDef htim1;
 extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
-
+extern sr04_t sr04;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -200,12 +201,38 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles TIM1 update interrupt.
+  */
+void TIM1_UP_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
+  if (__HAL_TIM_GET_FLAG(sr04.echo_htim, TIM_FLAG_UPDATE) != RESET)
+  {
+    if (__HAL_TIM_GET_IT_SOURCE(sr04.echo_htim, TIM_IT_UPDATE) != RESET)
+    {
+      sr04.tim_update_count++;
+    }
+  }
+  /* USER CODE END TIM1_UP_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 capture compare interrupt.
   */
 void TIM1_CC_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_CC_IRQn 0 */
-
+  if (__HAL_TIM_GET_FLAG(&htim1, TIM_FLAG_CC1) != RESET)
+  {
+    if (__HAL_TIM_GET_IT_SOURCE(&htim1, TIM_IT_CC1) != RESET)
+    {
+      sr04_read_distance(&sr04);
+    }
+  }
   /* USER CODE END TIM1_CC_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_CC_IRQn 1 */

@@ -128,6 +128,30 @@ ds.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/build
 .PHONY : ds.elf/fast
 
+Core/Src/SR04.obj: Core/Src/SR04.c.obj
+.PHONY : Core/Src/SR04.obj
+
+# target to build an object file
+Core/Src/SR04.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/SR04.c.obj
+.PHONY : Core/Src/SR04.c.obj
+
+Core/Src/SR04.i: Core/Src/SR04.c.i
+.PHONY : Core/Src/SR04.i
+
+# target to preprocess a source file
+Core/Src/SR04.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/SR04.c.i
+.PHONY : Core/Src/SR04.c.i
+
+Core/Src/SR04.s: Core/Src/SR04.c.s
+.PHONY : Core/Src/SR04.s
+
+# target to generate assembly for a file
+Core/Src/SR04.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ds.elf.dir\build.make CMakeFiles/ds.elf.dir/Core/Src/SR04.c.s
+.PHONY : Core/Src/SR04.c.s
+
 Core/Src/font.obj: Core/Src/font.c.obj
 .PHONY : Core/Src/font.obj
 
@@ -793,6 +817,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ds.elf
+	@echo ... Core/Src/SR04.obj
+	@echo ... Core/Src/SR04.i
+	@echo ... Core/Src/SR04.s
 	@echo ... Core/Src/font.obj
 	@echo ... Core/Src/font.i
 	@echo ... Core/Src/font.s

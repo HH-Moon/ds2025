@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ds.elf.dir/Core/Src/SR04.c.obj"
+  "CMakeFiles/ds.elf.dir/Core/Src/SR04.c.obj.d"
   "CMakeFiles/ds.elf.dir/Core/Src/font.c.obj"
   "CMakeFiles/ds.elf.dir/Core/Src/font.c.obj.d"
   "CMakeFiles/ds.elf.dir/Core/Src/gpio.c.obj"

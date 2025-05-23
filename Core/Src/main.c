@@ -29,6 +29,7 @@
 #include <string.h>
 #include "font.h"
 #include "oled.h"
+#include "SR04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,10 +37,8 @@
 uint8_t receivedata[50];
 uint8_t transmitdata[50] = "Init Success";
 
+sr04_t sr04;
 char message_sr04[20] = "";
-int upEdge = 0;
-int downEdge = 0;
-float distance = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -74,13 +73,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
   }
 }
 
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
-  if (htim == &htim1 && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4) {
-    upEdge = HAL_TIM_ReadCapturedValue(&htim1, TIM_CHANNEL_3);
-    downEdge = HAL_TIM_ReadCapturedValue(&htim1, TIM_CHANNEL_4);
-    distance = (downEdge - upEdge ) * 0.034 / 2; //cm
-  }
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -120,29 +113,23 @@ int main(void)
 
   HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
 
-  HAL_TIM_Base_Start(&htim1);
-  HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_3);
-  HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_4);
+  sr04.trig_port = GPIOA;
+  sr04.trig_pin = GPIO_PIN_9;
+  sr04.echo_htim = &htim1;
+  sr04.echo_channel = TIM_CHANNEL_1;
+  sr04_init(&sr04);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    sr04_trigger(&sr04);
+    HAL_Delay(100);
     OLED_NewFrame();
-    OLED_PrintString(0, 0, "hello", &font15x15, OLED_COLOR_NORMAL);
-    sprintf(message_sr04, "distance: %.2f", distance);
-    OLED_PrintString(0, 16, message_sr04, &font15x15, OLED_COLOR_NORMAL);
+    sprintf(message_sr04, "distance: %lu", sr04.distance);
+    OLED_PrintString(0, 17, message_sr04, &font16x16, OLED_COLOR_NORMAL);
     OLED_ShowFrame();
-
-    HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, GPIO_PIN_SET);
-    HAL_Delay(1);
-    HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, GPIO_PIN_RESET);
-    __HAL_TIM_SetCounter(&htim1, 0);
-    HAL_Delay(20);
-
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
