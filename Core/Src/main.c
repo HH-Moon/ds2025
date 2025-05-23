@@ -56,7 +56,7 @@ char messagez[20] = "";
 
 uint16_t vl53l0x_distance;
 statInfo_t_VL53L0X distanceStr;
-char distance[30] = {0};
+char message_vl[30] = "";
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -95,15 +95,11 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
   }
 }
 
-// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-//   if (htim == &htim4) {
-//     vl53l0x_distance = readRangeSingleMillimeters(&distanceStr);
-//     if (receivedata[0] == '1') {
-//       sprintf(distance, "distance: %d mm\r\n", vl53l0x_distance);
-//       HAL_UART_Transmit_IT(&huart2,(uint8_t *) distance, strlen(distance));
-//     }
-//   }
-// }
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+  if (htim == &htim4) {
+    MPU6050_Read_All(&hi2c2, &MPU6050);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -156,9 +152,9 @@ int main(void)
   sr04_init(&sr04);
 
   //MPU6050
-  // while (MPU6050_Init(&hi2c2) == 1);
+  while (MPU6050_Init(&hi2c2) == 1);
 
-  initVL53L0X(0, &hi2c2);
+  // initVL53L0X(0, &hi2c2);
 
   HAL_TIM_Base_Start_IT(&htim4);
   /* USER CODE END 2 */
@@ -174,16 +170,25 @@ int main(void)
     // OLED_PrintString(0, 17, message_sr04, &font16x16, OLED_COLOR_NORMAL);
     // OLED_ShowFrame();
 
-    // MPU6050_Read_All(&hi2c2, &MPU6050);
-    // sprintf(messagex, "x: %.2f", MPU6050.KalmanAngleX);
-    // sprintf(messagey, "y: %.2f", MPU6050.KalmanAngleY);
-    // sprintf(messagez, "z: %.2f", MPU6050.AngleZ);
-    // OLED_NewFrame();
-    // OLED_PrintString(0, 0, messagex, &font16x16, OLED_COLOR_NORMAL);
-    // OLED_PrintString(0, 17, messagey, &font16x16, OLED_COLOR_NORMAL);
-    // OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
-    // OLED_ShowFrame();
+    //姿态传感器MPU
+    sprintf(messagex, "roll: %.2f", MPU6050.KalmanAngleX);
+    sprintf(messagey, "pitch: %.2f", MPU6050.KalmanAngleY);
+    sprintf(messagez, "yaw: %.2f", MPU6050.AngleZ);
+    OLED_NewFrame();
+    OLED_PrintString(0, 0, messagex, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 17, messagey, &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
+    OLED_ShowFrame();
+    sprintf(messagey, "pitch: %.2f \n", MPU6050.KalmanAngleY);
+    HAL_UART_Transmit_DMA(&huart2,(uint8_t *) messagey, strlen(messagey));
 
+    //TOF
+    // vl53l0x_distance = readRangeSingleMillimeters(&distanceStr);
+    // sprintf(message_vl, "distance: %d mm\r\n", vl53l0x_distance);
+    // OLED_NewFrame();
+    // OLED_PrintString(0, 0, message_vl, &font15x15, OLED_COLOR_NORMAL);
+    // OLED_ShowFrame();
+    // HAL_UART_Transmit_DMA(&huart2,(uint8_t *) message_vl, strlen(message_vl));
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
