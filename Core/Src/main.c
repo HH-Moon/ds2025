@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -36,8 +37,14 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+extern DMA_HandleTypeDef hdma_usart2_rx;
+extern DMA_HandleTypeDef hdma_usart3_tx;
+
 uint8_t receivedata[50];
-uint8_t transmitdata[50] = "Init Success";
+uint8_t transmitdata[20] = "系统开机！";
+uint8_t mode2data[20] = "当前为模式2";
+int mode;
+int sum;
 
 sr04_t sr04;
 char message_sr04[20] = "";
@@ -49,6 +56,7 @@ char messagez[20] = "";
 
 uint16_t vl53l0x_distance;
 statInfo_t_VL53L0X distanceStr;
+char distance[30] = {0};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -77,13 +85,25 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
   if (huart == &huart2) {
-    HAL_UART_Transmit_IT(&huart2, transmitdata, strlen(transmitdata));
+    if (receivedata[0] == '2') {
+      HAL_UART_Transmit_IT(&huart2, mode2data, strlen(mode2data));
+    }
 
-    HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
+
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart2, receivedata, sizeof(receivedata));
+    __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);
   }
 }
 
-
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+//   if (htim == &htim4) {
+//     vl53l0x_distance = readRangeSingleMillimeters(&distanceStr);
+//     if (receivedata[0] == '1') {
+//       sprintf(distance, "distance: %d mm\r\n", vl53l0x_distance);
+//       HAL_UART_Transmit_IT(&huart2,(uint8_t *) distance, strlen(distance));
+//     }
+//   }
+// }
 /* USER CODE END 0 */
 
 /**
@@ -115,14 +135,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   MX_I2C2_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   OLED_Init();
 
-  HAL_UARTEx_ReceiveToIdle_IT(&huart2, receivedata, sizeof(receivedata));
+  HAL_UART_Transmit_IT(&huart2, transmitdata, strlen(transmitdata));
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart2, receivedata, sizeof(receivedata));
+  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);
 
   //超声波测距SR04
   sr04.trig_port = GPIOA;
@@ -131,10 +155,12 @@ int main(void)
   sr04.echo_channel = TIM_CHANNEL_1;
   sr04_init(&sr04);
 
-  //陀螺仪MPU6050
+  //MPU6050
   // while (MPU6050_Init(&hi2c2) == 1);
 
   initVL53L0X(0, &hi2c2);
+
+  HAL_TIM_Base_Start_IT(&htim4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,11 +184,6 @@ int main(void)
     // OLED_PrintString(0, 33, messagez, &font16x16, OLED_COLOR_NORMAL);
     // OLED_ShowFrame();
 
-    vl53l0x_distance = readRangeSingleMillimeters(&distanceStr);
-    sprintf(message_sr04, "Distance: %d", vl53l0x_distance);
-    OLED_NewFrame();
-    OLED_PrintString(0, 0, message_sr04, &font16x16, OLED_COLOR_NORMAL);
-    OLED_ShowFrame();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
