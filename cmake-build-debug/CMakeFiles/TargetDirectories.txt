@@ -1,0 +1,3 @@
+G:/STM32-Project/ds/cmake-build-debug/CMakeFiles/ds.elf.dir
+G:/STM32-Project/ds/cmake-build-debug/CMakeFiles/edit_cache.dir
+G:/STM32-Project/ds/cmake-build-debug/CMakeFiles/rebuild_cache.dir
